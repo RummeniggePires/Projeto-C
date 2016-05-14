@@ -2,6 +2,7 @@
 #include <stdlib.h>// necessário p/ as funções rand() e srand()
 #include <time.h>//necessário p/ função time()
 #include <iostream>
+
 using namespace std;
 
 int vezes;
@@ -12,7 +13,7 @@ int num[6];
 int jogada()
 {
 	printf("Digite quantas vezes o dado sera jogado: \n");
-	scanf("%d", &vezes);
+	scanf("%d", &vezes); // entrada de quantas vezes o laco vai rodar
 }
 
 int randomico()

@@ -3,21 +3,21 @@
 #include <cstdio>
 #include <iostream>
 
-using namespace std; 
+using namespace std;
 
 
-	typedef struct 
+	typedef struct
 	{
 		long senha;
 		float saldo;
-		int extrato[1000];
+		int extrato[];
 
 	}Conta;
 
 
 	typedef struct
 	{
-		
+
 		char nome[25];
 		long long cpf;
 		Conta conta;
@@ -25,7 +25,7 @@ using namespace std;
 
 	}Cliente;
 
-	
+
 	Cliente cliente[3];
 	int i,x, j;
 
@@ -39,14 +39,14 @@ void fim()
 	cout << " VOLTE SEMPRE";
 }
 
-	
+
 void Cadastro()
 {
 	int verificador;
 
 	for (int i = 1; i <= 3; ++i)
 	{
-		
+
 		cout << "Digite o nome do titular da conta " << i << ": ";
 		cin >> cliente[i].nome;
 		cout << "Digite o CPF do titular da conta: " << i << ": ";
@@ -55,7 +55,7 @@ void Cadastro()
 		cin >> cliente[i].conta.saldo;
 		cout << "Digite uma senha de quatro digitos: ";
 		cin >> cliente[i].conta.senha;
-	
+
 		cout << "\n \nCADASTRO EFETUADO COM SUCESSO.... \n";
 		cin.get();
 		cin.get();
@@ -64,7 +64,7 @@ void Cadastro()
 		cout << "Deseja acrescentar mais uma conta a esse cliente? (1-sim / 2-nao)";
 		cin >> verificador;
 		if (verificador == 1)
-		{	
+		{
 			int num_conta;
 			cout << "Digite quantas constas seram acrescentadas: ";
 			cin >> num_conta;
@@ -75,12 +75,12 @@ void Cadastro()
 				cin >> cliente[j].conta.saldo;
 				cout << "Digite uma senha de quatro digitos: ";
 				cin >> cliente[j].conta.senha;
-				
+
 				cout << "\n \nCADASTRO EFETUADO COM SUCESSO.... \n";
 				cout << " O NUMERO DA CONTA CRIADA EH: " << j ;
 				cin.get();
 				cin.get();
-				system("clear");				
+				system("clear");
 
 			}
 		}
@@ -90,13 +90,13 @@ void Cadastro()
 }
 
 void Deposito()
-{	
-	int i, deposito;	
+{
+	int i, deposito;
 
 	cout << "Digite o numero da conta: ";
 	cin >> i;
-		
-		if (i <0 || i>4 )
+
+		if (i <0 && i>4 )
 		{
 			cout << " CONTA NAO ENCONTRADA...";
 			cin.get();
@@ -105,17 +105,17 @@ void Deposito()
 			Deposito();
 		}
 		else
-		{	
+		{
 			char confirmacao;
 			cout << "O valor sera deposito na conta de: " << cliente[i].nome <<" \n";
 			cout << "Deseja continuar: (1-sim 2-nao)";
 			cin >> confirmacao;
-						
+
 				if (confirmacao == 1)
 				{
 					cout << "Digite o valor a ser depositado: ";
 					cin >> 	deposito;
-				
+
 					if (deposito < 0)
 					{
 						cout << "VALOR INVALIDO...";
@@ -142,14 +142,14 @@ void Deposito()
 					system("clear");
 					Deposito();
 				}
-				
+
 			}
 }
 
 
 void Saque()
 {
-	int i, saque, senha;	
+	int i, saque, senha;
 
 	cout << "Digite o numero da conta: ";
 	cin >> i;
@@ -171,9 +171,9 @@ void Saque()
 
 					if (senha == cliente[i].conta.senha)
 					{
-						cliente[i].conta.saldo = cliente[i].conta.saldo - saque ;		
+						cliente[i].conta.saldo = cliente[i].conta.saldo - saque ;
 						cout << "SAQUE REALIZADO COM SUCESSO...";
-						cin >> cliente[i].conta.extrato[x] >> " Saque de " >> saque;
+						cin >> cliente[i].conta.extrato[x];// >> " Saque de " >> saque;
 						x += 1;
 						cin.get();
 						cin.get();
@@ -187,16 +187,21 @@ void Saque()
 						system("clear");
 						Saque();
 					}
-	
+
 
 			}
 
 }
 
+void Extrato()
+{
+	cout << cliente[i].conta.extrato[x];
+}
+
 void Saldo()
 {
-	
-	int i, senha;	
+
+	int i, senha;
 
 	cout << "Digite o numero da conta: ";
 	cin >> i;
@@ -229,24 +234,21 @@ void Saldo()
 						system("clear");
 						Extrato();
 					}
-	
+
 
 			}
- 
+
 }
 
-void Extrato()
-{
-	cout << cliente[i]conta.extrato[x];
-}
+
 
 void menu()
 {
 	int op;
-	
+
 	cout << "\n 	Digite 1 para Cadastro: \n 	Digite 2 para Deposito: \n 	Digite 3 para Saque...: \n 	Digite 4 para Saldo...: \n 	Digite 0 para Sair....: \n \n 	Digite a operação: ";
 	cin >> op;
-	
+
 
 	switch (op)
 	{
@@ -273,7 +275,7 @@ void menu()
 }
 
 
-	
+
 int main(int argc, char const *argv[])
 
 {
