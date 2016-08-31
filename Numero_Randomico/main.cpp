@@ -9,23 +9,21 @@ using namespace std;
 
 
 int randomico()
-{ 
-	  
-	
+{
 
      for (int i=0; i < 10; i++)
      {
            // gerando valores aleatórios na faixa de 0 a 100
           valores[i]=(rand() % 100);
-          
-           
+
+
 	}
 	return 0;
 }
 
-int entrada() 
+int entrada()
 {
-	
+
 	printf("Digite um valor: ");
 	scanf("%d", &num);
 
@@ -33,35 +31,29 @@ int entrada()
 
 
 int teste()
-{ 
+{
 	for (int i = 1; i <= 10; i++)
 	{
-		if (num == valores[i]) 
-			
+		if (num == valores[i])
+
 		{
-			
-				
-			std::cout << "O valor foi encontrado na posicao " 
-			std::cout << " A posicao do valor eh: %d" << i
-			
-						
-		}
-		
+            cout << "O valor foi encontrado na posicao ";
+            cout << "A posicao do valor eh: " << i;
+
+        }
+
 	}
-	
 }
 
 
 int main(int argc, char **argv)
 {
-	
-			
+
+
 	randomico();
-	
 	entrada();
-	
-	teste(); 
-	
-	
+
+	teste();
+
 }
 

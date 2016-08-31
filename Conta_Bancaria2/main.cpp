@@ -14,14 +14,14 @@ using namespace std;
 int i, k;
 #define qnt_conta 3
 
-typedef struct 
+typedef struct
 {
 	float saldo;
 	int senha;
 
 }Conta;
 
-typedef struct 
+typedef struct
 {
 	char nome[25];
 	long long cpf;
@@ -29,13 +29,13 @@ typedef struct
 
 }Cliente;
 
-typedef struct 
+typedef struct
 {
 	string movimentacao[50];
 
 }Extrato;
 
-typedef struct 
+typedef struct
 {
 	float saldo[5];
 	int senha[5];
@@ -47,12 +47,12 @@ Sub_conta subconta[5];
 
 
 void SubConta()
-{		
+{
 		int contas;
 		cout << "################ CADASTRA CLIENTE ################ \n\n";
 		cout << "Digite quantas subconta serao acrescentadas: ";
-		cin >> contas;			
-			
+		cin >> contas;
+
 			while (contas != 0 )
 			{
 				int k = i*5;
@@ -84,7 +84,7 @@ void cadastro()
 		cin >> cliente[i].conta.senha;
 		cout << "	Digite o saldo inicial da conta " << i << " : ";
 		cin >> cliente[i].conta.saldo;
-		
+
 		cout << "	CADASTRO EFETUADO COM SUCESSO....";
 		cin.get();
 		cin.get();
@@ -92,18 +92,18 @@ void cadastro()
 
 		cout << "	Deseja efetuar a criacao de contas secundaria para esse cliente? (1-sim / 2-nao): ";
 		cin >> compara;
-		
+
 			if (compara == 1 )
-			{	
+			{
 				system("clear");
 
 				SubConta();
 			}
-				
-		
+
+
 	}
 
-}	
+}
 void Deposito()
 {
 	cout << "################ MENU PRINCIPAL ############### \n\n";
@@ -116,21 +116,21 @@ void Deposito()
 			cin.get();
 			system("clear");
 			Deposito();
-			
+
 		}
 		else
-		{	
+		{
 			int deposito;
 			char confirmacao;
 			cout << "O valor sera deposito na conta de: " << cliente[i].nome <<" \n";
 			cout << "Deseja continuar: (1-sim 2-nao)";
 			cin >> confirmacao;
-						
+
 				if (confirmacao == 1)
 				{
 					cout << "Digite o valor a ser depositado: ";
 					cin >> 	deposito;
-				
+
 					if (deposito < 0)
 					{
 						cout << "VALOR INVALIDO...";
@@ -161,7 +161,7 @@ void menu_cliente()
 
 		switch (op)
 		{
-		
+
 			case 1:
 				Deposito();
 				break;
@@ -201,7 +201,7 @@ void Logar()
 
 				if (senha == cliente[i].conta.senha)
 					{
-						cliente[i].conta.saldo = cliente[i].conta.saldo - saque ;		
+						cliente[i].conta.saldo = cliente[i].conta.saldo - saque ;
 						cout << "SAQUE REALIZADO COM SUCESSO...";
 						cin.get();
 						cin.get();

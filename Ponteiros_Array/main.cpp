@@ -21,22 +21,22 @@ void mm( int *num,int qnt,int *min,int *max)
 int main(int argc, const char *argv[])
 {
     num = new int[qnt];
-    
+
     cout << "Digite a quantidade de numeros que serao digitados: ";
     cin >>qnt;
 
     for (i = 0; i < qnt; i++) {
         cout << "Digite o numero " << i+1;
-        cin >> *(num+1);
+        cin >> *(num+i);
 
     }
 
-    mm(num, qnt, &min, &max);
-        
+    mm(num, qnt, min, max);
+
     cout<< "O Minimo eh: " << min;
     cout << "O Maximo eh: " << max;
     delete[];
 
-    
+
     return 0;
 }

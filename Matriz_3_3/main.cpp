@@ -2,6 +2,8 @@
 #include <iostream>
 #include <cstdlib>
 
+
+
 using namespace std ;
 
 //declaracao de vetores
