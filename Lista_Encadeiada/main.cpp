@@ -82,26 +82,87 @@ Lista *lst_excluir(Lista *l, int val){
 
 }
 
+Lista *lst_dividir(Lista *l, int n){
+	Lista *p = l;
+	Lista *lst2;
+
+	while(p != NULL) {
+	    
+	    if( p->info == n ){
+	
+	    	lst2 = p->prox;
+	    	p->prox	= NULL;
+		}
+
+		p = p->prox;
+
+	}
+	
+	return lst2;
+
+}
+
+Lista *concatenar(Lista *l1, Lista *l2){
+	Lista p;
+	Lista q;
+
+	if (l1 == NULL){
+		return l2;
+	}
+	p=l2;
+
+	do{
+		q = p;
+		p = p->prox;
+	}while(p != NULL);
+
+	l3->prox = l2;
+	
+	return l1;
+}
+Lista *receb_vetor(int t, int *v){
+	Lista *q; //cria uma nova lista
+	Lista *no; //percorre a lista
+
+	q = NULL;
+	
+	for (int i = n-1; i >= 0; --i)
+	 {
+		Lista* no = new Lista;
+
+		no->info = *v[i];
+		no->prox = q;
+		q = no;
+	 } 
+	 return q;
+}
+
 
 int main(){
 
 	Lista *l;
+	Lista *l2;
 
 	l = lst_criar();
+	l = lst_criar();
+	
 	l = lst_inserir(l,2); //l recebe a posicao do novo no
+	l = lst_inserir(l,5);
 	l = lst_inserir(l,3); //l receve a posicao do novo no
-    l = lst_inserir(l,5);
-    l = lst_inserir(l,9);
+  	l = lst_inserir(l,9);
 
 	lst_imprimir(l);
 
-    lst_excluir(l,9);
 
-    cout << "xupa eu " << endl;
+		
+   	l2 = lst_dividir(l,3);
 
-    lst_imprimir(l);
+   	cout << "------#######------ " << endl;
+		
+   	lst_imprimir(l2);
 
 	return 0;
+
 
 }
 
