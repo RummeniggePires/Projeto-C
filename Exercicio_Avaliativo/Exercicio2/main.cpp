@@ -1,28 +1,35 @@
 #include <iostream>
+#include <stdlib.h>
+#include <time.h>
 
 using namespace std;
 
 int tam;
-
-class Vetor
-{
-private:
-
-    int vet[];
-
-public:
+int vet[0];
 
 
-    void preenche_vet();
+void preenche_vet(){
 
-	void ordena(int vet[]);
+	cout << "Digite quantos valores serao acrescentados: ";
+	cin >> tam;
 
-};
+	
+	for (int i = 0; i < tam; ++i)
+		{
+		 	vet[i] = (rand() % 100 );
+		}
+
+}
 
 
-
-void ordena(int vet[]){
-
+void imprime_vet(){
+	for (int i = 0; i < tam; ++i)
+	{
+		cout <<" - "<< vet[i] << " - ";
+	}
+	cout << endl;
+}
+void ordena_vet(){
 	int aux;
 
 	for (int i = 0; i < tam; i++)
@@ -38,31 +45,43 @@ void ordena(int vet[]){
         }
 
     }
-
-}
-void preenche_vet(){
-	int opc;
-
-	while(opc == 0) {
-
-		cout << "Digite o valor do item: ";
-		cin >> vet[tam];
-
-		tam++;
-
-		cout << "Deseja digitar outro numero? 0 - Sim / 1 - Não";
-		cin >> opc;
-
-		cout << "\n\n\n\n\n\n";
-	}
-
 }
 
+void maior_repet(){
+	int cont_tmp, cont;
 
+	cont_tmp = 0;
+	cont = 0;
+
+	ordena_vet();
+    
+
+    for (int i = 0; i < tam; ++i)
+    {
+    	if( (vet[i]+1) == (vet[i+1]) )
+    	{
+    		cont_tmp++;
+    	}
+    	if ( (vet[i]+1) != vet[i+1])
+    	{
+    		if (cont < cont_tmp )
+    		{
+    			cont = cont_tmp;
+    			cont_tmp = 0;
+    		}
+    	}
+    
+    }
+		cout << cont << " consecutivos... " << endl;
+}
 
 int main(int argc, char const *argv[])
 {
-	preenche_vet();
+	srand ( (unsigned) time(NULL));
+	int vet[tam];
 
+	preenche_vet();
+	imprime_vet();
+	maior_repet();
 	return 0;
 }
