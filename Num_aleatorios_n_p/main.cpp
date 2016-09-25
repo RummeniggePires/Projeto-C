@@ -5,12 +5,14 @@
 #include <cstdio>
 #include <cstdlib>;
 
+using namespace std;
+
 double num1[50], num2[50], resultado[50];
 int aux;
 
 int main(int argc, char const *argv[])
 {
-	//srand(time(null));
+	srand((unsigned) time(NULL));
 
 
 
@@ -32,7 +34,7 @@ int main(int argc, char const *argv[])
 		for (int i = 0; i < 50; ++i)
 		{
 			/* code */
-		printf("%f \n",resultado[i] / i * (i-1) );
+		cout << resultado[i] / i * (i-1) ) <<endl;
 		}
 
 
